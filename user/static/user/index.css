@@ -1,0 +1,190 @@
+*{
+    padding: 0;
+    margin: 0;
+   
+}
+
+img{
+    object-fit: cover;
+}
+
+
+nav{
+    height: 80px;
+    width: 100%;
+    background-color: #34495e;
+    display: flex;
+    position: fixed;
+}
+
+nav p{
+    padding-top: 10px;
+    padding-left: 50px;
+    padding-right: 10px;
+    font-size: 20px;
+    color: whitesmoke;
+    float: left;
+    border-right: white 1px solid;
+       
+}
+
+
+nav ul{
+    padding: 5px;
+    float: right;
+
+}
+
+nav ul li{
+    display: inline;
+    padding: 20px;
+  
+}
+
+nav ul li a:hover{
+    color: wheat;
+}
+
+nav ul li a{
+    padding: 10px;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.content{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+   
+}
+
+.rightbar, .leftbar{
+    background-color:  #34495e;
+    flex-basis:25%;
+    position: sticky;
+    top: 0px;
+    border-radius: 5px;
+    overflow: auto;
+    height: 100vh;
+  
+}
+.rightbar .list, .leftbar .list{
+    padding: 30px;
+    background: linear-gradient(transparent 10%,rgba(0, 0, 0, 0.904));
+}
+.rightbar .list li, .leftbar .list li{
+    list-style: none;
+    padding: 5px;
+}
+.rightbar .list li a, .leftbar .list li a{
+    text-decoration: none;
+    color: white;
+}
+
+.center{
+    background-color: rgba(219, 203, 203, 0.87);
+    margin: 5px;
+    padding: 20px;
+    border-radius: 5px;
+    width: 50%;
+    justify-content: center;
+}
+.center .post{
+    border-radius: 10px;
+    background-color: whitesmoke;
+    padding: 25px;
+    margin-bottom: 10px;
+    
+}
+
+
+@media (max-width:1000px){
+
+    nav ul{
+        margin:0px;
+        background-color: rgb(32, 32, 46);
+        display: block;
+        width: 100%;
+        top: 80px;
+        
+    }
+    nav ul li{
+
+        display: block;
+        text-align: center;
+        
+    }
+    .leftbar, .rightbar{
+        display: none;
+    }
+
+    .center{
+        background-color: rgba(219, 203, 203, 0.87);
+        margin: 5px;
+        padding: 30px;
+        border-radius: 5px;
+        width: 100%;
+        justify-content: center;
+    }
+    .center .post{
+        border-radius: 10px;
+        background-color: whitesmoke;
+        padding: 25px;
+        margin-top: 10px;
+        padding-left: 100px;
+        
+    }
+    .center .post .pic{
+        height: 300px;
+    }
+
+    
+   
+    
+}
+
+@media (max-width:500px){
+  
+
+    nav ul{
+        margin:0px;
+        background-color: rgb(32, 32, 46);
+        display: block;
+        width: 100%;
+        top: 80px;
+ 
+    }
+    nav ul li{
+
+        display: block;
+        text-align: center;
+    }
+     
+    .leftbar, .rightbar{
+        display: none;
+    }
+
+    .center{
+        background-color: rgba(219, 203, 203, 0.87);
+        margin: 5px;
+        padding: 30px;
+        border-radius: 5px;
+        width: 100%;
+        justify-content: center;
+    }
+    .center .post{
+        border-radius: 10px;
+        background-color: whitesmoke;
+        padding: 25px;
+        margin-top: 10px;
+        
+    }
+
+    .center .post .pic{
+        width: 300px;
+        height: 200px;
+    }
+    
+}

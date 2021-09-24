@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'user/index.css'%}">
+    <script src="https://kit.fontawesome.com/ff17244aa6.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Home Page</title>
+</head>
+<body> 
+<style>
+
+    a{
+        text-decoration: none;
+    }
+</style>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-succes">
+        <a class="navbar-brand" href="#"> <p>Tweeter Clone</p></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span style=" color: white;" class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul>
+                <li style="margin-left: 200px;"><a href="#"><i class="far fa-bell"></i> Notifications</a></li>
+                <li><a href="https://www.youtube.com" target="_blank"><i class="far fa-play-circle"></i> Videos</a></li>
+                <li><a href="#"><i class="far fa-heart"></i> Favourites</a></li>
+                <li style="margin-left: 300px;" ><a href="{% url 'profile' %}"> <img class="rounded-circle" src="{{user.profile.profile_pic.url }}" alt="" width=50px height="50px"> <i class="fas fa-caret-down"></i> </a></li>
+        
+             </ul>
+        
+        </div>
+   </nav>
+
+    <div class="content">
+        <div class="leftbar ">
+            <div class="list">
+                <h3 style="color: white;">Account Info</h3>
+                <li><a href="#">Chats</a></li>
+                <li><a href="#">Friends</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="{% url 'logout'%}">Logout</a></li>
+
+            <div>
+               <h3 style="color: white; padding-top: 30px;">Job Adverts</h3>
+                <p style="color: wheat;">Data Science</p>
+                <img style="border-radius: 10px;" src="{% static 'user/Images/code.jpg'%}" alt="" width=250px height="150px">
+          </div>
+            <div>
+                <p style="color: wheat; padding-top: 10px;">Web Design</p>
+                <img style="border-radius: 10px;" src="{% static 'user/Images/code1.jpg'%}" alt="" width=250px height="150px">
+            </div>
+           
+            </div>
+        </div>
+        <div class="center">
+            <div class="post">            
+                {% for post in posts reversed %}
+
+                    
+                    <a href="{% url 'post-details' post.id %}">  <!--post-details name of the path -->
+                        <img  class="rounded-circle" src="{{ post.user.profile.profile_pic.url }}" alt="" width=50px height="50px"> 
+                        <h4>{{post.user}}</h4>
+                        <p style="color: gray;">{{post.user.email}} </p> 
+                        <p style="color: gray;">{{post.time}} </p> 
+                        <p style="color: black;">{{post.caption}}</p>
+                        <hr>
+                        {% if post.image%}
+                        <img class="pic"style="border-radius: 10px;" src="{{ post.image.url }}" width="500" height="300">
+                        <hr>
+                    </a>
+                    {% endif %}
+                {% endfor %}
+               
+            </div>
+        </div>
+        <div class="rightbar">
+            <div class="list">
+                <h3 style="color: white;">Events/ Reminders</h3>
+                <li><a href="#">Web Development</a></li>
+                <li><a href="#">Assignments</a></li>
+                <li><a href="#">Machine Learning</a></li>
+                <li><a href="#">Artificial Intelligence</a></li>
+           
+            <div>
+                <h3 style="color: white; padding-top: 30px;">Sports</h3>
+                <p style="color: wheat;">Messi's First International Trophy</p>
+                <img style="border-radius: 10px;" src="{% static 'user/Images/lapmessi.jpg'%}" alt="" width=250px height="150px">
+            </div>
+
+            <div>
+                
+                <p style="color: wheat; padding-top: 10px;">Football Fans meet Messi</p>
+                <img style="border-radius: 10px;" src="{% static 'user/Images/Jersey.jpg'%}" alt="" width=250px height="150px">
+            </div>
+
+            </div>
+        </div>
+    
+
+</div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      
+</body>
+</html>

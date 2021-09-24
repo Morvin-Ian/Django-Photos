@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <title>Profile</title>
+</head>
+
+{% load crispy_forms_tags%}
+{% block content%}
+
+<style>
+    .content{
+        display: flex;
+    }
+
+    .sidebar{
+        flex-basis: 30%;
+        margin: 30px;
+        color: white;
+        padding: 50px;
+        border-radius: 5px;
+    }
+
+ 
+</style>
+
+<div class="content">
+
+    <div class="sidebar bg-dark">
+        <h3>Sidebar Options</h3>
+        <ul>
+            <li>Friends</li>
+            <li>Sports</li>
+            <li>Job Adverts</li>
+            <li>Back</li>
+        </ul>
+    </div>
+
+   
+     <div style="padding: 30px; width: 60%; background-color: rgba(245, 222, 179, 0.59);" class="container mt-2 ">
+        <div class="media">
+           
+                <div class="media-body">
+                    <img  style="object-fit: cover;" class="rounded-circle account-img" src="{{ user.profile.profile_pic.url }}" width="100px" height="100px">
+                    <h4 style="margin-left: 5px;" class="account-heading ">{{user.username}}</h4>
+                     <p style="margin-left: 5px;" class="text-secondary ">{{user.email}}</p>
+
+                     <h5>Update Profile Infomation</h5>
+                    <form method='POST' enctype="multipart/form-data">
+                        {% csrf_token %}
+                         {{ d_form|crispy }}
+                         {{ p_form|crispy }}  
+                    
+                        <button style="margin: 30px 30px 0px 30px;" class="btn btn-outline-dark mt-5" type="submit" name="update" >Update</button>
+                    </form>
+                     
+                </div>
+   
+   
+
+    
+{% endblock %}
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
