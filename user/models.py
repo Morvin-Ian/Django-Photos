@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -10,6 +11,9 @@ class Post(models.Model):
 
     def __str__(self):
         return f"{self.user.username}'s Post"
+
+    def get_absolute_url(self):
+        return reverse('details', kwargs = {'pk':self.pk})
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)

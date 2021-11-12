@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Post</title>
+    <title>Delete Post</title>
 </head>
 <body>
 
@@ -15,11 +15,15 @@
             margin: 7%;
         }
     </style>
-    <form method="POST" enctype="multipart/form-data">
+  
+    <form method="POST" >
         {% csrf_token %}
-        {{form|crispy}} 
 
-        <button style="margin: 30px 30px 0px 30px;" class="btn btn-outline-dark mt-5" type="submit" name="post" >Post</button>
+        <h1>Delete the {{object.caption}} post</h1>
+
+        <button style="margin: 30px 30px 0px 30px;" class="btn btn-outline-danger mt-5" type="submit" name="del" >Delete</button>
+        <a style="margin: 30px 30px 0px 30px;" class="btn btn-outline-dark mt-5"  href="{% url 'details' object.id%}" >Cancel</a>
+        
     </form>
 
 
