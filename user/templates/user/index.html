@@ -58,10 +58,10 @@
         </div>
         <div class="center">
             <div class="post">            
-                {% for post in posts reversed %}
+                {% for post in posts  %}
 
                     
-                    <a href="{% url 'post-details' post.id %}">  <!--post-details name of the path -->
+                    <a href="{% url 'details' post.id %}">  <!--post-details name of the path -->
                         <img  class="rounded-circle" src="{{ post.user.profile.profile_pic.url }}" alt="" width=50px height="50px"> 
                         <h4>{{post.user}}</h4>
                         <p style="color: gray;">{{post.user.email}} </p> 
